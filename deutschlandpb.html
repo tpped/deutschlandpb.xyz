@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Germany Flag Profile Picture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #DD0000 50%, #FFCE00 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #000;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .info-section {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #DD0000;
+        }
+
+        .info-section h2 {
+            color: #DD0000;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .info-section p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .upload-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .upload-area {
+            border: 3px dashed #DD0000;
+            border-radius: 15px;
+            padding: 40px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: #fafafa;
+        }
+
+        .upload-area:hover {
+            background: #fff5f5;
+            border-color: #000;
+        }
+
+        .upload-area.dragover {
+            background: #fff5f5;
+            border-color: #000;
+            transform: scale(1.02);
+        }
+
+        .upload-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .upload-text {
+            color: #DD0000;
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .upload-subtext {
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .preview-section {
+            display: none;
+            margin-bottom: 30px;
+        }
+
+        .canvas-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        #canvas {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider-container {
+            margin: 20px 0;
+        }
+
+        .slider-container label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+            font-weight: 600;
+        }
+
+        #opacitySlider {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #ddd;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        #opacitySlider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #DD0000;
+            cursor: pointer;
+        }
+
+        #opacitySlider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #DD0000;
+            cursor: pointer;
+            border: none;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .download-btn, .reset-btn {
+            flex: 1;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .download-btn {
+            background: #28a745;
+            color: white;
+        }
+
+        .download-btn:hover {
+            background: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+        }
+
+        .reset-btn {
+            background: #6c757d;
+            color: white;
+        }
+
+        .reset-btn:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.4);
+        }
+
+        .tips-section {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196F3;
+            display: none;
+        }
+
+        .tips-section h3 {
+            color: #1976D2;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .tips-section ul {
+            color: #555;
+            padding-left: 20px;
+        }
+
+        .tips-section li {
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🇩🇪 Germany Flag Profile Picture</h1>
+        
+        <div class="info-section">
+            <h2>Add the German Flag to Your Picture</h2>
+            <p>Show your pride and support by adding the German flag overlay to your profile picture at a 45-degree angle. Perfect for national holidays, sports events, or showing your connection to Germany!</p>
+        </div>
+
+        <div class="upload-section">
+            <label for="fileInput">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📸</div>
+                    <div class="upload-text">Click to Upload or Drag & Drop</div>
+                    <div class="upload-subtext">Your profile picture (JPG, PNG, GIF)</div>
+                </div>
+            </label>
+            <input type="file" id="fileInput" accept="image/*">
+        </div>
+
+        <div class="tips-section" id="tipsSection">
+            <h3>💡 How to Get Your Profile Picture:</h3>
+            <ul>
+                <li><strong>TikTok:</strong> Go to your profile → tap profile picture → screenshot or save image</li>
+                <li><strong>Instagram:</strong> Open profile → tap profile picture → take screenshot</li>
+                <li><strong>Facebook/Twitter:</strong> Right-click profile picture → "Save image as"</li>
+            </ul>
+        </div>
+
+        <div class="preview-section" id="previewSection">
+            <div class="canvas-container">
+                <canvas id="canvas"></canvas>
+            </div>
+            
+            <div class="slider-container">
+                <label for="opacitySlider">Flag Opacity: <span id="opacityValue">60%</span></label>
+                <input type="range" id="opacitySlider" min="30" max="90" value="60">
+            </div>
+
+            <div class="button-group">
+                <button class="download-btn" id="downloadBtn">Download Picture</button>
+                <button class="reset-btn" id="resetBtn">Upload New Image</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const previewSection = document.getElementById('previewSection');
+        const uploadSection = document.querySelector('.upload-section');
+        const tipsSection = document.getElementById('tipsSection');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const opacitySlider = document.getElementById('opacitySlider');
+        const opacityValue = document.getElementById('opacityValue');
+        const uploadArea = document.getElementById('uploadArea');
+        
+        let originalImage = null;
+
+        // Show tips on first load
+        setTimeout(() => {
+            tipsSection.style.display = 'block';
+        }, 500);
+
+        // Drag and drop functionality
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.startsWith('image/')) {
+                handleImageFile(file);
+            }
+        });
+
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                handleImageFile(file);
+            }
+        });
+
+        function handleImageFile(file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const img = new Image();
+                img.onload = function() {
+                    originalImage = img;
+                    applyGermanFlag();
+                    uploadSection.style.display = 'none';
+                    tipsSection.style.display = 'none';
+                    previewSection.style.display = 'block';
+                };
+                img.src = event.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        opacitySlider.addEventListener('input', function() {
+            opacityValue.textContent = this.value + '%';
+            if (originalImage) {
+                applyGermanFlag();
+            }
+        });
+
+        function applyGermanFlag() {
+            const maxSize = 800;
+            let width = originalImage.width;
+            let height = originalImage.height;
+
+            if (width > maxSize || height > maxSize) {
+                if (width > height) {
+                    height = (height / width) * maxSize;
+                    width = maxSize;
+                } else {
+                    width = (width / height) * maxSize;
+                    height = maxSize;
+                }
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+
+            // Draw original image
+            ctx.drawImage(originalImage, 0, 0, width, height);
+
+            // Save the current state
+            ctx.save();
+
+            // Set opacity
+            const opacity = opacitySlider.value / 100;
+            ctx.globalAlpha = opacity;
+
+            // Rotate canvas by 45 degrees around center
+            ctx.translate(width / 2, height / 2);
+            ctx.rotate(45 * Math.PI / 180);
+
+            // Calculate diagonal length to ensure flag covers entire image
+            const diagonal = Math.sqrt(width * width + height * height);
+            const stripeHeight = diagonal / 3;
+
+            // Draw German flag (Black, Red, Gold)
+            // Black stripe
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(-diagonal / 2, -diagonal / 2, diagonal, stripeHeight);
+
+            // Red stripe
+            ctx.fillStyle = '#DD0000';
+            ctx.fillRect(-diagonal / 2, -diagonal / 2 + stripeHeight, diagonal, stripeHeight);
+
+            // Gold stripe
+            ctx.fillStyle = '#FFCE00';
+            ctx.fillRect(-diagonal / 2, -diagonal / 2 + 2 * stripeHeight, diagonal, stripeHeight);
+
+            // Restore the canvas state
+            ctx.restore();
+        }
+
+        downloadBtn.addEventListener('click', function() {
+            const link = document.createElement('a');
+            link.download = 'germany-flag-profile-picture.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        });
+
+        resetBtn.addEventListener('click', function() {
+            previewSection.style.display = 'none';
+            uploadSection.style.display = 'block';
+            tipsSection.style.display = 'block';
+            fileInput.value = '';
+            originalImage = null;
+        });
+    </script>
+</body>
+</html>
